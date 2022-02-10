@@ -5,16 +5,18 @@ public abstract class Character {
     String name;
     int level;
     PrimaryAttributes primaryAttributes;
+    TotalPrimaryAttributes totalPrimaryAttributes;
     HashMap<SLOT, Item> equipmentSlots;
 
     /* Constructors */
     public Character() {
     }
 
-    public Character(String name, int level, PrimaryAttributes primaryAttributes, HashMap<SLOT, Item> equipmentSlots) {
+    public Character(String name, int level, PrimaryAttributes primaryAttributes, TotalPrimaryAttributes totalPrimaryAttributes, HashMap<SLOT, Item> equipmentSlots) {
         this.name = name;
         this.level = level;
         this.primaryAttributes = primaryAttributes;
+        this.totalPrimaryAttributes = totalPrimaryAttributes;
         this.equipmentSlots = equipmentSlots;
     }
 
@@ -43,6 +45,14 @@ public abstract class Character {
         this.primaryAttributes = primaryAttributes;
     }
 
+    public TotalPrimaryAttributes getTotalPrimaryAttributes() {
+        return totalPrimaryAttributes;
+    }
+
+    public void setTotalPrimaryAttributes(TotalPrimaryAttributes totalPrimaryAttributes) {
+        this.totalPrimaryAttributes = totalPrimaryAttributes;
+    }
+
     public HashMap<SLOT, Item> getEquipmentSlots() {
         return equipmentSlots;
     }
@@ -54,5 +64,6 @@ public abstract class Character {
     /* Methods */
     abstract void levelUp();
     abstract void equipItem(Item item) throws InvalidWeaponException, InvalidArmorException;
+    abstract TotalPrimaryAttributes calculateTPA ();
 
 }

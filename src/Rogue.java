@@ -7,7 +7,7 @@ public class Rogue extends Character {
     }
 
     public Rogue(String name) {
-        super(name, 1, new PrimaryAttributes(2,6,1), new HashMap<>());
+        super(name, 1, new PrimaryAttributes(2,6,1), new TotalPrimaryAttributes(2,6,1) , new HashMap<>());
     }
 
     /* Methods */
@@ -22,6 +22,8 @@ public class Rogue extends Character {
     }
     @Override
     void equipItem(Item item) throws InvalidWeaponException, InvalidArmorException {
+        // Call the specific equip method depending on what type
+        // of item the character wants to equip
         if (item instanceof Weapon) {
             equipWeapon((Weapon) item);
         } else if (item instanceof Armor) {
@@ -53,8 +55,13 @@ public class Rogue extends Character {
             } else {
                 throw new InvalidArmorException("You can't wear this " + armor.type);
             }
-
-
+        } else {
+            throw new InvalidArmorException("You can't wear a weapon on this slot");
         }
+    }
+
+    @Override
+    TotalPrimaryAttributes calculateTPA() {
+        return null;
     }
 }
