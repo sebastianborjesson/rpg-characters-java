@@ -1,4 +1,4 @@
-public enum WEAPONTYPE {
+public enum WEAPON_TYPE {
     AXE,
     BOW,
     DAGGER,

@@ -5,20 +5,17 @@ public abstract class Character {
     String name;
     int level;
     PrimaryAttributes primaryAttributes;
-    HashMap<SLOT, Item> equipment;
-
-
-
+    HashMap<SLOT, Item> equipmentSlots;
 
     /* Constructors */
     public Character() {
     }
 
-    public Character(String name, int level, PrimaryAttributes primaryAttributes, HashMap<SLOT, Item> equipment) {
+    public Character(String name, int level, PrimaryAttributes primaryAttributes, HashMap<SLOT, Item> equipmentSlots) {
         this.name = name;
         this.level = level;
         this.primaryAttributes = primaryAttributes;
-        this.equipment = equipment;
+        this.equipmentSlots = equipmentSlots;
     }
 
     /* Getters and Setters */
@@ -46,15 +43,16 @@ public abstract class Character {
         this.primaryAttributes = primaryAttributes;
     }
 
-    public HashMap<SLOT, Item> getEquipment() {
-        return equipment;
+    public HashMap<SLOT, Item> getEquipmentSlots() {
+        return equipmentSlots;
     }
 
-    public void setEquipment(HashMap<SLOT, Item> equipment) {
-        this.equipment = equipment;
+    public void setEquipmentSlots(HashMap<SLOT, Item> equipment) {
+        this.equipmentSlots = equipment;
     }
 
     /* Methods */
-    abstract void levelUp ();
+    abstract void levelUp();
+    abstract void equipItem(Item item) throws InvalidWeaponException, InvalidArmorException;
 
 }

@@ -1,5 +1,5 @@
 public class Armor extends Item {
-    ARMORTYPE type;
+    ARMOR_TYPE type;
     PrimaryAttributes primaryAttributes;
 
     public Armor() {
@@ -9,18 +9,18 @@ public class Armor extends Item {
         super(name, requiredLevel, slot);
     }
 
-    public Armor(String name, int requiredLevel, SLOT slot, ARMORTYPE type, PrimaryAttributes primaryAttributes) {
+    public Armor(String name, int requiredLevel, SLOT slot, ARMOR_TYPE type, PrimaryAttributes primaryAttributes) {
         super(name, requiredLevel, slot);
         this.type = type;
         this.primaryAttributes = primaryAttributes;
     }
 
     /* Getters and Setters */
-    public ARMORTYPE getType() {
+    public ARMOR_TYPE getType() {
         return type;
     }
 
-    public void setType(ARMORTYPE type) {
+    public void setType(ARMOR_TYPE type) {
         this.type = type;
     }
 

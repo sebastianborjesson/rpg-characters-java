@@ -1,4 +1,4 @@
-public enum ARMORTYPE {
+public enum ARMOR_TYPE {
     CLOTH,
     LEATHER,
     MAIL,

@@ -1,6 +1,6 @@
 public class Weapon extends Item {
     /* Properties */
-    WEAPONTYPE type;
+    WEAPON_TYPE type;
     double damage;
     double APS; // APS = Attacks per second
 
@@ -8,7 +8,7 @@ public class Weapon extends Item {
     public Weapon() {
     }
 
-    public Weapon(String name, int requiredLevel, SLOT slot, WEAPONTYPE type, double damage, double APS) {
+    public Weapon(String name, int requiredLevel, SLOT slot, WEAPON_TYPE type, double damage, double APS) {
         super(name, requiredLevel, slot);
         this.type = type;
         this.damage = damage;
@@ -16,11 +16,11 @@ public class Weapon extends Item {
     }
 
     /* Getters and Setters */
-    public WEAPONTYPE getType() {
+    public WEAPON_TYPE getType() {
         return type;
     }
 
-    public void setType(WEAPONTYPE type) {
+    public void setType(WEAPON_TYPE type) {
         this.type = type;
     }
 
