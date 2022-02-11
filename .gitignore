@@ -39,6 +39,7 @@ gradle-app.setting
 ## IntelliJ
 ##############################
 out/
+src/test.java
 .idea/
 .idea_modules/
 *.iml
