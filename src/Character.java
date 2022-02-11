@@ -56,6 +56,7 @@ public abstract class Character {
 
     /* Methods */
     abstract void levelUp();
+    abstract double getCharacterDPS();
     abstract void equipItem(Item item) throws InvalidWeaponException, InvalidArmorException;
     public abstract String toString();
 
