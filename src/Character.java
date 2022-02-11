@@ -26,24 +26,12 @@ public abstract class Character {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public int getLevel() {
         return level;
     }
 
-    public void setLevel(int level) {
-        this.level = level;
-    }
-
     public PrimaryAttributes getPrimaryAttributes() {
         return primaryAttributes;
-    }
-
-    public void setPrimaryAttributes(PrimaryAttributes primaryAttributes) {
-        this.primaryAttributes = primaryAttributes;
     }
 
     public PrimaryAttributes getTotalPrimaryAttributes() {
@@ -64,18 +52,6 @@ public abstract class Character {
 
 
         return new PrimaryAttributes(strength, dexterity, intelligence);
-    }
-
-    public void setTotalPrimaryAttributes(TotalPrimaryAttributes totalPrimaryAttributes) {
-        this.totalPrimaryAttributes = totalPrimaryAttributes;
-    }
-
-    public Map<SLOT, Item> getEquipmentSlots() {
-        return equipmentSlots;
-    }
-
-    public void setEquipmentSlots(HashMap<SLOT, Item> equipment) {
-        this.equipmentSlots = equipment;
     }
 
     /* Methods */
