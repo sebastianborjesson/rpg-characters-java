@@ -39,4 +39,9 @@ public class Weapon extends Item {
     public void setAPS(double APS) {
         this.APS = APS;
     }
+
+    /* Methods */
+    public double getWeaponsDPS() {
+        return damage * APS;
+    }
 }
