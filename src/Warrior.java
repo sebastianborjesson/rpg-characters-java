@@ -63,6 +63,14 @@ public class Warrior extends Character{
     }
 
     @Override
+    double getCharacterDPS() {
+        Weapon weapon = (Weapon) equipmentSlots.get(SLOT.WEAPON);
+        if (weapon == null) return 0;
+        double DPSWeapon = weapon.getWeaponsDPS();
+        return DPSWeapon * (1 + (double) getTotalPrimaryAttributes().strength / 100);
+    }
+
+    @Override
     public String toString() {
         Class c = this.getClass();
         return
@@ -70,7 +78,8 @@ public class Warrior extends Character{
                 "\nClass: " + c.getSimpleName() +
                 "\nLevel: " + getLevel() +
                 "\nStrength: " +getTotalPrimaryAttributes().strength +
-                "\nDexterity: " + getPrimaryAttributes().dexterity +
-                "\nIntelligence: " + getPrimaryAttributes().intelligence;
+                "\nDexterity: " + getTotalPrimaryAttributes().dexterity +
+                "\nIntelligence: " + getTotalPrimaryAttributes().intelligence +
+                "\nDPS: " + getCharacterDPS();
     }
 }

@@ -61,14 +61,22 @@ public class Rogue extends Character {
     }
 
     @Override
+    double getCharacterDPS() {
+        Weapon weapon = (Weapon) equipmentSlots.get(SLOT.WEAPON);
+        if (weapon == null) return 0;
+        double DPSWeapon = weapon.getWeaponsDPS();
+        return DPSWeapon * (1 + (double) getTotalPrimaryAttributes().dexterity / 100);
+    }
+
+    @Override
     public String toString() {
         Class c = this.getClass();
         return
                 "Name: " + getName() +
                 "\nClass: " + c.getSimpleName() +
                 "\nLevel: " + getLevel() +
-                "\nStrength: " +getPrimaryAttributes().strength +
-                "\nDexterity: " + getPrimaryAttributes().dexterity +
-                "\nIntelligence: " + getPrimaryAttributes().intelligence;
+                "\nStrength: " +getTotalPrimaryAttributes().strength +
+                "\nDexterity: " + getTotalPrimaryAttributes().dexterity +
+                "\nIntelligence: " + getTotalPrimaryAttributes().intelligence;
     }
 }
