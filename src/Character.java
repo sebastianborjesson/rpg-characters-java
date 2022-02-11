@@ -1,12 +1,13 @@
 import java.util.HashMap;
+import java.util.Map;
 
 public abstract class Character {
     /* Properties */
-    String name;
-    int level;
-    PrimaryAttributes primaryAttributes;
-    TotalPrimaryAttributes totalPrimaryAttributes;
-    HashMap<SLOT, Item> equipmentSlots;
+    protected String name;
+    protected int level;
+    protected PrimaryAttributes primaryAttributes;
+    protected PrimaryAttributes totalPrimaryAttributes;
+    protected Map<SLOT, Item> equipmentSlots = new HashMap<>();
 
     /* Constructors */
     public Character() {
@@ -45,15 +46,31 @@ public abstract class Character {
         this.primaryAttributes = primaryAttributes;
     }
 
-    public TotalPrimaryAttributes getTotalPrimaryAttributes() {
-        return totalPrimaryAttributes;
+    public PrimaryAttributes getTotalPrimaryAttributes() {
+        int strength = 0;
+        int dexterity = 0;
+        int intelligence = 0;
+        for (Item item: equipmentSlots.values()) {
+            if (item instanceof Armor) {
+                strength += ((Armor) item).primaryAttributes.strength;
+                dexterity += ((Armor) item).primaryAttributes.dexterity;
+                intelligence += ((Armor) item).primaryAttributes.intelligence;
+            }
+        }
+
+        strength += this.primaryAttributes.strength;
+        dexterity += this.primaryAttributes.dexterity;
+        intelligence += this.primaryAttributes.intelligence;
+
+
+        return new PrimaryAttributes(strength, dexterity, intelligence);
     }
 
     public void setTotalPrimaryAttributes(TotalPrimaryAttributes totalPrimaryAttributes) {
         this.totalPrimaryAttributes = totalPrimaryAttributes;
     }
 
-    public HashMap<SLOT, Item> getEquipmentSlots() {
+    public Map<SLOT, Item> getEquipmentSlots() {
         return equipmentSlots;
     }
 
@@ -64,6 +81,6 @@ public abstract class Character {
     /* Methods */
     abstract void levelUp();
     abstract void equipItem(Item item) throws InvalidWeaponException, InvalidArmorException;
-    abstract TotalPrimaryAttributes calculateTPA ();
+    public abstract String toString();
 
 }
