@@ -60,7 +60,14 @@ public class Mage extends Character {
     }
 
     @Override
-    TotalPrimaryAttributes calculateTPA() {
-        return null;
+    public String toString() {
+        Class c = this.getClass();
+        return
+                "Name: " + getName() +
+                "\nClass: " + c.getSimpleName() +
+                "\nLevel: " + getLevel() +
+                "\nStrength: " +getPrimaryAttributes().strength +
+                "\nDexterity: " + getPrimaryAttributes().dexterity +
+                "\nIntelligence: " + getPrimaryAttributes().intelligence;
     }
 }
