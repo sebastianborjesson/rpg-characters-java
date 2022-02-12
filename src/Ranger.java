@@ -61,8 +61,12 @@ public class Ranger extends Character {
     @Override
     double getCharacterDPS() {
         Weapon weapon = (Weapon) equipmentSlots.get(SLOT.WEAPON);
-        if (weapon == null) return 0;
-        double DPSWeapon = weapon.getWeaponsDPS();
+        double DPSWeapon;
+        if (weapon == null) {
+            DPSWeapon = 1;
+        } else {
+            DPSWeapon = weapon.getWeaponsDPS();
+        }
         return DPSWeapon * (1 + (double) getTotalPrimaryAttributes().dexterity / 100);
     }
 

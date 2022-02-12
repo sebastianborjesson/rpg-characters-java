@@ -51,6 +51,11 @@ public class Warrior extends Character{
     }
     void equipArmor(Armor armor) throws InvalidArmorException {
         if (armor.slot == SLOT.HEAD || armor.slot == SLOT.BODY || armor.slot == SLOT.LEGS) {
+            if (armor.requiredLevel > this.level) {
+                throw new InvalidArmorException("Invalid level requirement. " +
+                        "This armor requires you to be at level " + armor.requiredLevel +
+                        " and you are currently at level " + this.level);
+            }
             if (armor.type == ARMOR_TYPE.MAIL ||
                 armor.type == ARMOR_TYPE.PLATE) {
                 this.equipmentSlots.put(armor.slot, armor);
@@ -65,8 +70,12 @@ public class Warrior extends Character{
     @Override
     double getCharacterDPS() {
         Weapon weapon = (Weapon) equipmentSlots.get(SLOT.WEAPON);
-        if (weapon == null) return 0;
-        double DPSWeapon = weapon.getWeaponsDPS();
+        double DPSWeapon;
+        if (weapon == null) {
+            DPSWeapon = 1;
+        } else {
+            DPSWeapon = weapon.getWeaponsDPS();
+        }
         return DPSWeapon * (1 + (double) getTotalPrimaryAttributes().strength / 100);
     }
 
