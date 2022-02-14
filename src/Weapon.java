@@ -20,26 +20,6 @@ public class Weapon extends Item {
         return type;
     }
 
-    public void setType(WEAPON_TYPE type) {
-        this.type = type;
-    }
-
-    public double getDamage() {
-        return damage;
-    }
-
-    public void setDamage(double damage) {
-        this.damage = damage;
-    }
-
-    public double getAPS() {
-        return APS;
-    }
-
-    public void setAPS(double APS) {
-        this.APS = APS;
-    }
-
     /* Methods */
     public double getWeaponsDPS() {
         return damage * APS;

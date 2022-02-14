@@ -1,3 +1,4 @@
+
 public abstract class Item {
     String name;
     int requiredLevel;
@@ -16,18 +17,6 @@ public abstract class Item {
     /* Getters and Setters */
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getRequiredLevel() {
-        return requiredLevel;
-    }
-
-    public void setRequiredLevel(int requiredLevel) {
-        this.requiredLevel = requiredLevel;
     }
 
     public SLOT getSlot() {

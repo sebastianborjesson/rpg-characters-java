@@ -11,7 +11,9 @@ class CharacterTest {
     Rogue newRogue;
     Ranger newRanger;
 
-
+    // Code review Alex:
+    // Reinitalizes four characters but each method only uses one at the time.
+    // Suggesion: Reinitalize each variable indiviudally in each method.
     @BeforeEach
     void setUp() {
         newWarrior = new Warrior("test");

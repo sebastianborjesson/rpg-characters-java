@@ -1,6 +1,6 @@
 import java.util.HashMap;
 import java.util.Map;
-
+// Would be nice with a short description of what this classed is used for
 public abstract class Character {
     /* Properties */
     protected String name;
