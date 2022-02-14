@@ -7,7 +7,7 @@ public class Rogue extends Character {
     }
 
     public Rogue(String name) {
-        super(name, 1, new PrimaryAttributes(2,6,1), new TotalPrimaryAttributes(2,6,1) , new HashMap<>());
+        super(name, 1, new PrimaryAttributes(2,6,1), new PrimaryAttributes(2,6,1) , new HashMap<>());
     }
 
     /* Methods */

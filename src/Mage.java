@@ -8,7 +8,7 @@ public class Mage extends Character {
     }
 
     public Mage(String name) {
-        super(name, 1, new PrimaryAttributes(1,1,8), new TotalPrimaryAttributes(1,1,8), new HashMap<>());
+        super(name, 1, new PrimaryAttributes(1,1,8), new PrimaryAttributes(1,1,8), new HashMap<>());
     }
 
     /* Methods */

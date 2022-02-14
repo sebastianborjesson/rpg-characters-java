@@ -13,7 +13,7 @@ public abstract class Character {
     public Character() {
     }
 
-    public Character(String name, int level, PrimaryAttributes primaryAttributes, TotalPrimaryAttributes totalPrimaryAttributes, HashMap<SLOT, Item> equipmentSlots) {
+    public Character(String name, int level, PrimaryAttributes primaryAttributes, PrimaryAttributes totalPrimaryAttributes, HashMap<SLOT, Item> equipmentSlots) {
         this.name = name;
         this.level = level;
         this.primaryAttributes = primaryAttributes;

@@ -7,7 +7,7 @@ public class Ranger extends Character {
     }
 
     public Ranger(String name) {
-        super(name, 1, new PrimaryAttributes(1,7,1), new TotalPrimaryAttributes(1,7,1),  new HashMap<>());
+        super(name, 1, new PrimaryAttributes(1,7,1), new PrimaryAttributes(1,7,1),  new HashMap<>());
     }
 
     /* Methods */

@@ -7,7 +7,7 @@ public class Warrior extends Character{
     }
 
     public Warrior(String name) {
-        super(name, 1, new PrimaryAttributes(5,3,2), new TotalPrimaryAttributes(5,3,2), new HashMap<>());
+        super(name, 1, new PrimaryAttributes(5,3,2), new PrimaryAttributes(5,3,2), new HashMap<>());
     }
 
 
