@@ -79,6 +79,7 @@ public class Ranger extends Character {
                 "\nLevel: " + getLevel() +
                 "\nStrength: " +getTotalPrimaryAttributes().strength +
                 "\nDexterity: " + getTotalPrimaryAttributes().dexterity +
-                "\nIntelligence: " + getTotalPrimaryAttributes().intelligence;
+                "\nIntelligence: " + getTotalPrimaryAttributes().intelligence +
+                "\nDPS: " + getCharacterDPS();
     }
 }
