@@ -27,7 +27,7 @@ class ItemTest {
     }
 
     @Test
-    void equipWeapon_weaponLevelHigherThanCharacters_shouldThrowException() {
+    void EquipWeapon_WeaponLevelHigherThanCharacters_ShouldThrowException() {
         Weapon weapon = new Weapon("Mighty Axe", 2, SLOT.WEAPON, WEAPON_TYPE.AXE, 10, 0.8);
         assertThrows(InvalidWeaponException.class, () -> {
             newWarrior.equipmentSlots.put(SLOT.WEAPON, weapon);
@@ -40,7 +40,7 @@ class ItemTest {
     }
 
     @Test
-    void equipArmor_armorLevelHigherThanCharacters_ShouldThrowException() {
+    void EquipArmor_ArmorLevelHigherThanCharacters_ShouldThrowException() {
         Armor armor = new Armor(
                 "Plate Body",
                 2,
@@ -59,7 +59,7 @@ class ItemTest {
     }
 
     @Test
-    void equipWeapon_wrongWeaponTypeForWarrior_shouldThrowException() {
+    void EquipWeapon_WrongWeaponTypeForWarrior_ShouldThrowException() {
         Weapon weapon = new Weapon("Cross-Bow", 1, SLOT.WEAPON, WEAPON_TYPE.BOW, 15, 0.6);
         assertThrows(InvalidWeaponException.class, () -> {
             if (weapon.type == WEAPON_TYPE.AXE ||
@@ -73,7 +73,7 @@ class ItemTest {
     }
 
     @Test
-    void equipArmor_wrongArmorTypeForWarrior_shouldThrowException() {
+    void EquipArmor_WrongArmorTypeForWarrior_ShouldThrowException() {
         Armor armor = new Armor(
                 "Cloth",
                 1,
@@ -92,14 +92,14 @@ class ItemTest {
     }
 
     @Test
-    void equipWeapon_validWeapon_shouldReturnTrue() {
+    void EquipWeapon_ValidWeapon_ShouldReturnTrue() {
         Weapon weapon = new Weapon("Common Wand", 2, SLOT.WEAPON, WEAPON_TYPE.WAND, 10, 0.8);
         newMage.equipmentSlots.put(SLOT.WEAPON, weapon);
         assertTrue(newMage.equipmentSlots.get(SLOT.WEAPON) != null);
     }
 
     @Test
-    void equipArmor_validArmor_shouldReturnTrue() {
+    void EquipArmor_ValidArmor_ShouldReturnTrue() {
         Armor armor = new Armor(
                 "Leather Helmet",
                 2,
@@ -112,19 +112,21 @@ class ItemTest {
     }
 
     @Test
-    void calculateDPS_noWeaponEquipped_expectingLowestAmount() {
-        assertEquals(1.05, newWarrior.getCharacterDPS());
+    void CalculateDPS_NoWeaponEquipped_ExpectingLowestAmount() {
+        double expectedDPS = 1 * (1 + ((double) 5 / 100));
+        assertEquals(expectedDPS, newWarrior.getCharacterDPS());
     }
 
     @Test
-    void calculateDPS_axeEquipped() {
+    void CalculateDPS_AxeEquipped_CalculationShouldBeTheSame() {
         Weapon weapon = new Weapon("Mighty Axe", 1, SLOT.WEAPON, WEAPON_TYPE.AXE, 7, 1.1);
+        double expectedDPS =  (7 * 1.1) * (1 + ((double) 5 / 100));
         newWarrior.equipmentSlots.put(SLOT.WEAPON, weapon);
-        assertEquals(8.085, newWarrior.getCharacterDPS());
+        assertEquals(expectedDPS, newWarrior.getCharacterDPS());
     }
 
     @Test
-    void calculateDPS_weaponAndArmorEquipped() {
+    void CalculateDPS_WeaponAndArmorEquipped_CalculationShouldBeTheSame() {
         Weapon weapon = new Weapon("Mighty Axe", 1, SLOT.WEAPON, WEAPON_TYPE.AXE, 7, 1.1);
         Armor armor = new Armor(
                 "Plate Body",
@@ -133,9 +135,10 @@ class ItemTest {
                 ARMOR_TYPE.PLATE,
                 new PrimaryAttributes(1,1,1)
         );
+        double expectedDPS = (7 * 1.1) * (1 + ((double)  (5+1) / 100));
         newWarrior.equipmentSlots.put(SLOT.WEAPON, weapon);
         newWarrior.equipmentSlots.put(SLOT.BODY, armor);
-        assertEquals(8.162, newWarrior.getCharacterDPS());
+        assertEquals(expectedDPS, newWarrior.getCharacterDPS());
 
     }
 }

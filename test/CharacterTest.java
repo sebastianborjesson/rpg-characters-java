@@ -30,12 +30,12 @@ class CharacterTest {
     }
 
     @Test
-    void CreateCharacter_Level_ShouldBe1() {
+    void CreateCharacter_DefaultLevel_ShouldBe1() {
         assertEquals(1, newWarrior.level);
     }
 
     @Test
-    void LevelUpCharacter_Level_ShouldReturn2() {
+    void LevelUpCharacter_IncreaseLevelForCharacter_ShouldReturn2() {
         newMage.levelUp();
         assertEquals(2, newMage.level);
     }
