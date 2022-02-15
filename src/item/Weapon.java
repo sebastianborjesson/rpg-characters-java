@@ -19,11 +19,6 @@ public class Weapon extends Item {
         this.APS = APS;
     }
 
-    /* Getters and Setters */
-    public WEAPON_TYPE getType() {
-        return type;
-    }
-
     /* Methods */
     public double getWeaponsDPS() {
         return damage * APS;

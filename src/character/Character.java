@@ -6,7 +6,7 @@ import item.*;
 
 import java.util.HashMap;
 import java.util.Map;
-// Would be nice with a short description of what this classed is used for
+/* This class is used a base class for every character that is created  */
 public abstract class Character {
     /* Properties */
     protected String name;
@@ -19,6 +19,7 @@ public abstract class Character {
     public Character() {
     }
 
+    /* Constructor that is inherited down to every subclass that implements the class */
     public Character(String name, int level, PrimaryAttributes primaryAttributes, PrimaryAttributes totalPrimaryAttributes, HashMap<SLOT, Item> equipmentSlots) {
         this.name = name;
         this.level = level;
@@ -44,6 +45,7 @@ public abstract class Character {
         int strength = 0;
         int dexterity = 0;
         int intelligence = 0;
+        /* Loop through your equipment slots and add the attributes to your total */
         for (Item item: equipmentSlots.values()) {
             if (item instanceof Armor) {
                 strength += ((Armor) item).primaryAttributes.strength;
@@ -52,6 +54,7 @@ public abstract class Character {
             }
         }
 
+        /* Add the characters base attributes to the total */
         strength += this.primaryAttributes.strength;
         dexterity += this.primaryAttributes.dexterity;
         intelligence += this.primaryAttributes.intelligence;
@@ -60,7 +63,7 @@ public abstract class Character {
         return new PrimaryAttributes(strength, dexterity, intelligence);
     }
 
-    /* Methods */
+    /* Abstract methods for characters and it's subclasses */
     public abstract void levelUp();
     public abstract double getCharacterDPS();
     public abstract void equipItem(Item item) throws InvalidWeaponException, InvalidArmorException;
