@@ -1,31 +1,34 @@
+package character;
+
+import exceptions.*;
+import item.*;
+import enums.*;
+
 import java.util.HashMap;
 
-public class Mage extends Character {
-
+public class Ranger extends Character {
 
     /* Constructors */
-    public Mage() {
+    public Ranger() {
     }
 
-    public Mage(String name) {
-        super(name, 1, new PrimaryAttributes(1,1,8), new PrimaryAttributes(1,1,8), new HashMap<>());
+    public Ranger(String name) {
+        super(name, 1, new PrimaryAttributes(1,7,1), new PrimaryAttributes(1,7,1),  new HashMap<>());
     }
 
     /* Methods */
     @Override
-    void levelUp() {
+    public void levelUp() {
         this.level++;
         this.primaryAttributes = new PrimaryAttributes(
                 this.primaryAttributes.strength + 1,
-                this.primaryAttributes.dexterity + 1,
-                this.primaryAttributes.intelligence + 5
+                this.primaryAttributes.dexterity + 5,
+                this.primaryAttributes.intelligence + 1
         );
     }
 
-
-
     @Override
-    void equipItem(Item item) throws InvalidWeaponException, InvalidArmorException {
+    public void equipItem(Item item) throws InvalidWeaponException, InvalidArmorException {
         if (item instanceof Weapon) {
             equipWeapon((Weapon) item);
         } else if (item instanceof Armor) {
@@ -42,8 +45,7 @@ public class Mage extends Character {
         if (weapon.slot != SLOT.WEAPON) {
             throw new InvalidWeaponException("You need to equip your weapon to the weapon slot.");
         }
-        if (weapon.type == WEAPON_TYPE.STAFF ||
-                weapon.type == WEAPON_TYPE.WAND) {
+        if (weapon.type == WEAPON_TYPE.BOW) {
             this.equipmentSlots.put(SLOT.WEAPON, weapon);
         } else {
             throw new InvalidWeaponException("You can't equip this " + weapon.type);
@@ -51,7 +53,8 @@ public class Mage extends Character {
     }
     void equipArmor(Armor armor) throws InvalidArmorException {
         if (armor.slot == SLOT.HEAD || armor.slot == SLOT.BODY || armor.slot == SLOT.LEGS) {
-            if (armor.type == ARMOR_TYPE.CLOTH) {
+            if (armor.type == ARMOR_TYPE.MAIL ||
+                    armor.type == ARMOR_TYPE.LEATHER) {
                 this.equipmentSlots.put(armor.slot, armor);
             } else {
                 throw new InvalidArmorException("You can't wear this " + armor.type);
@@ -62,7 +65,7 @@ public class Mage extends Character {
     }
 
     @Override
-    double getCharacterDPS() {
+    public double getCharacterDPS() {
         Weapon weapon = (Weapon) equipmentSlots.get(SLOT.WEAPON);
         double DPSWeapon;
         if (weapon == null) {
@@ -70,7 +73,7 @@ public class Mage extends Character {
         } else {
             DPSWeapon = weapon.getWeaponsDPS();
         }
-        return DPSWeapon * (1 + (double) getTotalPrimaryAttributes().intelligence / 100);
+        return DPSWeapon * (1 + (double) getTotalPrimaryAttributes().dexterity / 100);
     }
 
     @Override

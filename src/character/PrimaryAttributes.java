@@ -1,3 +1,5 @@
+package character;
+
 public class PrimaryAttributes {
     public int strength;
     public int dexterity;

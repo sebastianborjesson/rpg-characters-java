@@ -1,8 +1,11 @@
+package item;
+
+import enums.SLOT;
 
 public abstract class Item {
-    String name;
-    int requiredLevel;
-    SLOT slot;
+    public String name;
+    public int requiredLevel;
+    public SLOT slot;
 
 
     public Item() {

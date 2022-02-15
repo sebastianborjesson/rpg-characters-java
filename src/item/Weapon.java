@@ -1,8 +1,12 @@
+package item;
+
+import enums.*;
+
 public class Weapon extends Item {
     /* Properties */
-    WEAPON_TYPE type;
-    double damage;
-    double APS; // APS = Attacks per second
+    public WEAPON_TYPE type;
+    public double damage;
+    public double APS; // APS = Attacks per second
 
     /* Constructors */
     public Weapon() {

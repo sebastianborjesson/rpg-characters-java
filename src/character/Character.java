@@ -1,13 +1,19 @@
+package character;
+
+import enums.*;
+import exceptions.*;
+import item.*;
+
 import java.util.HashMap;
 import java.util.Map;
 // Would be nice with a short description of what this classed is used for
 public abstract class Character {
     /* Properties */
     protected String name;
-    protected int level;
+    public int level;
     protected PrimaryAttributes primaryAttributes;
     protected PrimaryAttributes totalPrimaryAttributes;
-    protected Map<SLOT, Item> equipmentSlots = new HashMap<>();
+    public Map<SLOT, Item> equipmentSlots = new HashMap<>();
 
     /* Constructors */
     public Character() {
@@ -55,9 +61,9 @@ public abstract class Character {
     }
 
     /* Methods */
-    abstract void levelUp();
-    abstract double getCharacterDPS();
-    abstract void equipItem(Item item) throws InvalidWeaponException, InvalidArmorException;
+    public abstract void levelUp();
+    public abstract double getCharacterDPS();
+    public abstract void equipItem(Item item) throws InvalidWeaponException, InvalidArmorException;
     public abstract String toString();
 
 }

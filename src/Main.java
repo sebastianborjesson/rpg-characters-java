@@ -1,10 +1,13 @@
+import character.*;
+import enums.*;
+import exceptions.*;
+import item.*;
+
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws InvalidArmorException, InvalidWeaponException {
-        Scanner scan = new Scanner(System.in);
-
-            runMenu();
+        runMenu();
     }
 
     static void runMenu() throws InvalidArmorException, InvalidWeaponException {
@@ -16,10 +19,10 @@ public class Main {
         System.out.print("Enter your name: ");
         String userName = scan.next();
         System.out.println("Which class do you wish to be?: ");
-        System.out.println("1. Mage");
-        System.out.println("2. Ranger");
-        System.out.println("3. Rogue");
-        System.out.println("4. Warrior");
+        System.out.println("1. character.Mage");
+        System.out.println("2. character.Ranger");
+        System.out.println("3. character.Rogue");
+        System.out.println("4. character.Warrior");
         System.out.print("Enter the number of the class: ");
         int classChoice = scan.nextInt();
         Mage newMage = new Mage(userName);
@@ -32,7 +35,7 @@ public class Main {
             System.out.println("1. Level up");
             System.out.println("2. Equip weapon");
             System.out.println("3. Equip armor");
-            System.out.println("4. Character sheet");
+            System.out.println("4. character.Character sheet");
             System.out.println("5. Exit system");
             System.out.print("Make your choice -> ");
             int menuChoice = scan.nextInt();

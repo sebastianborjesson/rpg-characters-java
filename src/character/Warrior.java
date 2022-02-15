@@ -1,29 +1,36 @@
+package character;
+
+import exceptions.*;
+import item.*;
+import enums.*;
+
 import java.util.HashMap;
 
-public class Rogue extends Character {
+public class Warrior extends Character {
 
     /* Constructors */
-    public Rogue() {
+    public Warrior() {
     }
 
-    public Rogue(String name) {
-        super(name, 1, new PrimaryAttributes(2,6,1), new PrimaryAttributes(2,6,1) , new HashMap<>());
+    public Warrior(String name) {
+        super(name, 1, new PrimaryAttributes(5,3,2), new PrimaryAttributes(5,3,2), new HashMap<>());
     }
+
+
 
     /* Methods */
     @Override
-    void levelUp() {
+    public void levelUp() {
         this.level++;
         this.primaryAttributes = new PrimaryAttributes(
-                this.primaryAttributes.strength + 1,
-                this.primaryAttributes.dexterity + 4,
+                this.primaryAttributes.strength + 3,
+                this.primaryAttributes.dexterity + 2,
                 this.primaryAttributes.intelligence + 1
         );
     }
+
     @Override
-    void equipItem(Item item) throws InvalidWeaponException, InvalidArmorException {
-        // Call the specific equip method depending on what type
-        // of item the character wants to equip
+    public void equipItem(Item item) throws InvalidWeaponException, InvalidArmorException {
         if (item instanceof Weapon) {
             equipWeapon((Weapon) item);
         } else if (item instanceof Armor) {
@@ -40,7 +47,8 @@ public class Rogue extends Character {
         if (weapon.slot != SLOT.WEAPON) {
             throw new InvalidWeaponException("You need to equip your weapon to the weapon slot.");
         }
-        if (weapon.type == WEAPON_TYPE.DAGGER ||
+        if (weapon.type == WEAPON_TYPE.AXE ||
+            weapon.type == WEAPON_TYPE.HAMMER ||
             weapon.type == WEAPON_TYPE.SWORD) {
             this.equipmentSlots.put(SLOT.WEAPON, weapon);
         } else {
@@ -49,19 +57,24 @@ public class Rogue extends Character {
     }
     void equipArmor(Armor armor) throws InvalidArmorException {
         if (armor.slot == SLOT.HEAD || armor.slot == SLOT.BODY || armor.slot == SLOT.LEGS) {
+            if (armor.requiredLevel > this.level) {
+                throw new InvalidArmorException("Invalid level requirement. " +
+                        "This armor requires you to be at level " + armor.requiredLevel +
+                        " and you are currently at level " + this.level);
+            }
             if (armor.type == ARMOR_TYPE.MAIL ||
-                    armor.type == ARMOR_TYPE.LEATHER) {
+                armor.type == ARMOR_TYPE.PLATE) {
                 this.equipmentSlots.put(armor.slot, armor);
             } else {
                 throw new InvalidArmorException("You can't wear this " + armor.type);
             }
-        } else {
-            throw new InvalidArmorException("You can't wear a weapon on this slot");
+
+
         }
     }
 
     @Override
-    double getCharacterDPS() {
+    public double getCharacterDPS() {
         Weapon weapon = (Weapon) equipmentSlots.get(SLOT.WEAPON);
         double DPSWeapon;
         if (weapon == null) {
@@ -69,7 +82,7 @@ public class Rogue extends Character {
         } else {
             DPSWeapon = weapon.getWeaponsDPS();
         }
-        return DPSWeapon * (1 + (double) getTotalPrimaryAttributes().dexterity / 100);
+        return DPSWeapon * (1 + (double) getTotalPrimaryAttributes().strength / 100);
     }
 
     @Override

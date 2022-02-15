@@ -1,6 +1,12 @@
+package item;
+
+import character.PrimaryAttributes;
+import enums.*;
+
+
 public class Armor extends Item {
-    ARMOR_TYPE type;
-    PrimaryAttributes primaryAttributes;
+    public ARMOR_TYPE type;
+    public PrimaryAttributes primaryAttributes;
 
     public Armor() {
     }
