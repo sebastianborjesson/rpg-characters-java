@@ -30,6 +30,7 @@ With your character, you can do a couple of actions to build up your character.
 ## Built with
 
 - Java
+- JUnit
 
 ## Getting Started
 
@@ -75,11 +76,13 @@ After that's done the user is greeted with a menu interface with the ability to 
 * Equip a armor
   * Side note: For demo purposes there is only one armor to acquire
 * See your character sheet with information on your character stats
-  * Side note: if the user has eqipped any armor and weapon the DPS stat line will be recalculated based on
-  all attributes combined with the characters base stat line
+  * This will display and list the characters name, class, current level, base attributes and its total DPS (Damage per second)
+    
+    * Side note: if the user has eqipped any armor and weapon the DPS stat line will be recalculated based on
+    all attributes combined with the characters base stat line
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Contact
 
-[Sebastian Börjesson](https://gitlab.com/sebastian.borjesson)
+[Sebastian Börjesson](https://github.com/sebastianborjesson)
