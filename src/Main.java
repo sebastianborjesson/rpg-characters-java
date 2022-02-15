@@ -108,7 +108,7 @@ public class Main {
                     }
                 } else if (classChoice == 2) {
                     System.out.println("Name | Required Level | Strength | Dexterity | Intelligence");
-                    System.out.println("1. Leather | 1 | 1 | 1 | 1");
+                    System.out.println("1. Leather | 1 | 1 | 4 | 1");
                     System.out.print("Choose the armor you want to equip -> ");
                     int armorChoice = scan.nextInt();
                     if (armorChoice == 1) {
@@ -118,7 +118,7 @@ public class Main {
                     }
                 } else if (classChoice == 3) {
                     System.out.println("Name | Required Level | Strength | Dexterity | Intelligence");
-                    System.out.println("1. Mail | 1 | 1 | 1 | 1");
+                    System.out.println("1. Mail | 1 | 2 | 4 | 1");
                     System.out.print("Choose the armor you want to equip -> ");
                     int armorChoice = scan.nextInt();
                     if (armorChoice == 1) {
@@ -128,7 +128,7 @@ public class Main {
                     }
                 } else if (classChoice == 4) {
                     System.out.println("Name | Required Level | Strength | Dexterity | Intelligence");
-                    System.out.println("1. Plate | 1 | 1 | 1 | 1");
+                    System.out.println("1. Plate | 1 | 6 | 1 | 1");
                     System.out.print("Choose the armor you want to equip -> ");
                     int armorChoice = scan.nextInt();
                     if (armorChoice == 1) {
