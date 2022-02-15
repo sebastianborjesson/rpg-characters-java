@@ -1,4 +1,9 @@
 import static org.junit.jupiter.api.Assertions.*;
+
+import character.*;
+import enums.*;
+import exceptions.*;
+import item.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -12,10 +17,10 @@ class ItemTest {
 
     @BeforeEach
     void setUp() {
-        newWarrior = new Warrior("Warrior-test");
-        newMage = new Mage("Mage-test");
-        newRogue = new Rogue("Rogue-test");
-        newRanger = new Ranger("Ranger-test");
+        newWarrior = new Warrior("character.Warrior-test");
+        newMage = new Mage("character.Mage-test");
+        newRogue = new Rogue("character.Rogue-test");
+        newRanger = new Ranger("character.Ranger-test");
     }
 
     @AfterEach
