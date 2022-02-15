@@ -7,29 +7,17 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CharacterTest {
 
-    Warrior newWarrior;
     Mage newMage;
-    Rogue newRogue;
     Ranger newRanger;
+    Rogue newRogue;
+    Warrior newWarrior;
 
-    // Code review Alex:
-    // Reinitalizes four characters but each method only uses one at the time.
-    // Suggesion: Reinitalize each variable indiviudally in each method.
     @BeforeEach
     void setUp() {
-        newWarrior = new Warrior("test");
         newMage = new Mage("test2");
-        newRogue = new Rogue("test3");
         newRanger = new Ranger("test4");
-
-    }
-
-    @AfterEach
-    void tearDown() {
-        newWarrior = null;
-        newMage = null;
-        newRogue = null;
-        newRanger = null;
+        newRogue = new Rogue("test3");
+        newWarrior = new Warrior("test");
     }
 
     @Test

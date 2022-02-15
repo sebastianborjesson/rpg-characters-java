@@ -10,25 +10,17 @@ import org.junit.jupiter.api.Test;
 
 class ItemTest {
 
-    Warrior newWarrior;
     Mage newMage;
-    Rogue newRogue;
     Ranger newRanger;
+    Rogue newRogue;
+    Warrior newWarrior;
 
     @BeforeEach
     void setUp() {
-        newWarrior = new Warrior("character.Warrior-test");
-        newMage = new Mage("character.Mage-test");
-        newRogue = new Rogue("character.Rogue-test");
-        newRanger = new Ranger("character.Ranger-test");
-    }
-
-    @AfterEach
-    void tearDown() {
-        newWarrior = null;
-        newMage = null;
-        newRogue = null;
-        newRanger = null;
+        newMage = new Mage("Mage-test");
+        newRanger = new Ranger("Ranger-test");
+        newRogue = new Rogue("Rogue-test");
+        newWarrior = new Warrior("Warrior-test");
     }
 
     @Test
